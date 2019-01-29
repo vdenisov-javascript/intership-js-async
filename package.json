@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "tests": "mocha --watch tests/",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+
+    "task1": "node tasks/task-1.js",
+
+    "task1:test": "mocha --watch tests/task-1.test.js"
   },
   "repository": {
     "type": "git",
