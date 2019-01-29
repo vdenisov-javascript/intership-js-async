@@ -4,7 +4,9 @@
   "description": "JavaScript - async",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "tests": "mocha --watch tests/",
+    "eslint": "eslint ."
   },
   "repository": {
     "type": "git",
