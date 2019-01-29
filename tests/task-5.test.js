@@ -1,5 +1,4 @@
 const assert = require('assert');
-const task5 = require('../tasks/task-5');
 
 
 describe('Testing "task-5" from "Javacript-Async"', () => {
