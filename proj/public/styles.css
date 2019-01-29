@@ -1,0 +1,24 @@
+body {
+  margin: 0 auto;
+  padding:0;
+  width: 80%;
+}
+.course-title {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  background-color: lightskyblue;
+}
+.all-themes { padding: 0; }
+.theme {
+  text-align: center;
+  background-color: lavender;
+}
+.question {
+  margin: 20px 0;
+  font-size: 25px;
+  text-decoration: underline;
+}
+.answer { font-size: 20px; }
+.answer-correct { color: green; }
+.answer-wrong { color: red; }

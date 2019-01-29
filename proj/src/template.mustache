@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS-course</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <h1 class="course-title">{{name}}</h1>
+  <ul class="all-themes">{{#themes}}
+    <h2 class="theme">{{title}}</h2>
+    <ul>{{#questions}}
+      <li class="question">{{description}}</li>
+      <ul>{{#answers}}
+        <li class="answer">
+          {{#isCorrect}}<div class="answer-correct">{{text}}</div>{{/isCorrect}}
+          {{^isCorrect}}<div class="answer-wrong">{{text}}</div>{{/isCorrect}}
+        </li>
+      {{/answers}}</ul>
+    {{/questions}}</ul>
+  {{/themes}}</ul>
+
+</body>
+
+</html>
