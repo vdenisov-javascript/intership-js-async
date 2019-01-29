@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
-const task2 = require('../tasks/task-2');
+const task3 = require('../tasks/task-3');
 
 
-describe('Testing "task-2" from "Javacript-Async"', () => {
+describe('Testing "task-3" from "Javacript-Async"', () => {
 
   const projPathTo = require('./../proj/about').pathTo;
 
@@ -21,7 +21,7 @@ describe('Testing "task-2" from "Javacript-Async"', () => {
   });
 
   it('should successfully convert temmplate ".mustache" to output file ".html"', () => {
-    task2.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
+    task3.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
 
     fs.access(pathToOutput, error => {
       const success = !!error;

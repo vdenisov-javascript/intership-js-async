@@ -14,6 +14,9 @@
     "task2": "node tasks/task-2.js",
     "task2:test": "mocha --watch tests/task-2.test.js",
 
+    "task3": "node tasks/task-3.js",
+    "task3:test": "mocha --watch tests/task-3.test.js",
+
     "proj:compile": "mustache proj/src/courseInfo.json proj/src/template.mustache > proj/public/index.html"
   },
   "repository": {
@@ -30,6 +33,7 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
+    "bluebird": "^3.5.3",
     "mustache": "^3.0.1"
   }
 }
