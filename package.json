@@ -1,0 +1,19 @@
+{
+  "name": "lds-js-async",
+  "version": "1.0.0",
+  "description": "JavaScript - async",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdenisov-dev/lds-js-async.git"
+  },
+  "author": "Vladimir Denisov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vdenisov-dev/lds-js-async/issues"
+  },
+  "homepage": "https://github.com/vdenisov-dev/lds-js-async#readme"
+}
