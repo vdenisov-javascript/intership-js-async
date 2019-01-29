@@ -13,20 +13,22 @@ describe('Testing "task-2" from "Javacript-Async"', () => {
   const pathToOutput = path.join( __dirname, '../', projPathTo.outputHtmlFile );
 
   it('should be sure that output file ".html" not exist', () => {
-    fs.access(pathToOutput, error => {
-      if (!error) fs.unlinkSync(pathToOutput);
+    // delete file if it exist
+    const isExist = fs.existsSync(pathToOutput);
+    if (isExist) fs.unlinkSync(pathToOutput);
 
-      assert.equal( true, true );
-    });
+    // check that file not exist
+    const checking = fs.existsSync(pathToOutput);
+    assert.equal( checking, false );
   });
 
   it('should successfully convert temmplate ".mustache" to output file ".html"', () => {
     task2.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
 
-    fs.access(pathToOutput, error => {
-      const success = !!error;
-      assert.equal( success, true );
-    });
+    setTimeout(() => {
+      const checking = fs.existsSync(pathToOutput);
+      assert.equal( checking, true );
+    }, 1500);
   });
 
 });

@@ -17,6 +17,12 @@
     "task3": "node tasks/task-3.js",
     "task3:test": "mocha --watch tests/task-3.test.js",
 
+    "task4": "node tasks/task-4.js",
+    "task4:test": "mocha --watch tests/task-4.test.js",
+
+    "task5": "node tasks/task-5.js -n 10 proj/src/template.mustache",
+    "task5:test": "mocha --watch tests/task-5.test.js",
+
     "proj:compile": "mustache proj/src/courseInfo.json proj/src/template.mustache > proj/public/index.html"
   },
   "repository": {

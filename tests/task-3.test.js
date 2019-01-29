@@ -1,4 +1,5 @@
-const fs = require('fs');
+const Promise = require("bluebird");
+const fs = Promise.promisifyAll(require('fs'));
 const path = require('path');
 const assert = require('assert');
 const task3 = require('../tasks/task-3');
@@ -13,20 +14,18 @@ describe('Testing "task-3" from "Javacript-Async"', () => {
   const pathToOutput = path.join( __dirname, '../', projPathTo.outputHtmlFile );
 
   it('should be sure that output file ".html" not exist', () => {
-    fs.access(pathToOutput, error => {
-      if (!error) fs.unlinkSync(pathToOutput);
+    // delete file if it exist
+    const isExist = fs.existsSync(pathToOutput);
+    if (isExist) fs.unlinkSync(pathToOutput);
 
-      assert.equal( true, true );
-    });
+    // check that file not exist
+    const checking = fs.existsSync(pathToOutput);
+    assert.equal( checking, false );
   });
 
   it('should successfully convert temmplate ".mustache" to output file ".html"', () => {
-    task3.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
-
-    fs.access(pathToOutput, error => {
-      const success = !!error;
-      assert.equal( success, true );
-    });
+    task3.compilingViaMustache(pathToData, pathToTemplate, pathToOutput)
+    .then(checking => assert.equal( checking, true ));
   });
 
 });
