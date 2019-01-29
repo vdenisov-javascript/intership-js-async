@@ -15,20 +15,18 @@ describe('Testing "task-2" from "Javacript-Async"', () => {
   it('should be sure that output file ".html" not exist', () => {
     fs.access(pathToOutput, error => {
       if (!error) fs.unlinkSync(pathToOutput);
-    });
 
-    assert.equal( true, true );
+      assert.equal( true, true );
+    });
   });
 
   it('should successfully convert temmplate ".mustache" to output file ".html"', () => {
     task2.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
 
-    let success = false;
     fs.access(pathToOutput, error => {
-      if (!error) success = true;
+      const success = !!error;
+      assert.equal( success, true );
     });
-
-    setTimeout(() => assert.equal( true, true ), 1000);
   });
 
 });
