@@ -9,8 +9,12 @@
     "eslint": "eslint .",
 
     "task1": "node tasks/task-1.js",
+    "task1:test": "mocha --watch tests/task-1.test.js",
 
-    "task1:test": "mocha --watch tests/task-1.test.js"
+    "task2": "node tasks/task-2.js",
+    "task2:test": "mocha --watch tests/task-2.test.js",
+
+    "proj:compile": "mustache proj/src/courseInfo.json proj/src/template.mustache > proj/public/index.html"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,8 @@
   "homepage": "https://github.com/vdenisov-dev/lds-js-async#readme",
   "devDependencies": {
     "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "mustache": "^3.0.1"
   }
 }
