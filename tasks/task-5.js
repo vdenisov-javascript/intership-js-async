@@ -1,15 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 
-const numberOfLastLines =
-  Math.abs( parseInt(process.argv[3]) ) || 10;
-const relativePath = process.argv[4];
 
-const absolutePath = path.join( __dirname, '../', relativePath );
+const numberOfLastLines = Math.abs( parseInt(process.argv[3]) ) || 10;
 
-const readStream = fs.createReadStream(absolutePath, 'utf-8');
+// INPUT file {
+const inputRelativePath = process.argv[4];
+const inputAbsolutePath = path.join( __dirname, '../', inputRelativePath );
+// } INPUT file
+
+// OUTPUT file {
+const outputRelativePath = process.argv[5];
+const outputAbsolutePath = path.join( __dirname, '../', outputRelativePath );
+// } OUTPUT file
+
+// streams {
+const readStream = fs.createReadStream(inputAbsolutePath, { encoding: 'utf-8', flags: 'r' });
+const writeStream = fs.createWriteStream(outputAbsolutePath, { encoding: 'utf-8', flags: 'w' });
+// } streams
+
+
 let totalStrings = [];
-
 
 readStream.on('data', fragment => {
   const newStrings = fragment.split('\n');
@@ -22,7 +33,8 @@ readStream.on('data', fragment => {
 readStream.on('end', () => {
   readStream.close();
   for (let string of totalStrings) {
-    console.log(string);
+    // console.log(string);
+    writeStream.write(string + '\n');
   }
 })
 

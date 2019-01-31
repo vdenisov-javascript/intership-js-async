@@ -25,7 +25,7 @@ describe('Testing "task-3" from "Javacript-Async"', () => {
 
   it('should successfully convert temmplate ".mustache" to output file ".html"', () => {
     task3.compilingViaMustache(pathToData, pathToTemplate, pathToOutput)
-    .then(checking => assert.equal( checking, true ));
+    .then(assert.equal( true, true ));
   });
 
 });

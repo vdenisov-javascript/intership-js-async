@@ -7,22 +7,16 @@
     "start": "node index.js",
     "tests": "mocha --watch tests/",
     "eslint": "eslint .",
-
     "task1": "node tasks/task-1.js",
     "task1:test": "mocha --watch tests/task-1.test.js",
-
     "task2": "node tasks/task-2.js",
     "task2:test": "mocha --watch tests/task-2.test.js",
-
     "task3": "node tasks/task-3.js",
     "task3:test": "mocha --watch tests/task-3.test.js",
-
     "task4": "node tasks/task-4.js",
     "task4:test": "mocha --watch tests/task-4.test.js",
-
-    "task5": "node tasks/task-5.js -n 10 proj/src/template.mustache",
+    "task5": "node tasks/task-5.js -n 10 proj/src/template.mustache proj/out.txt",
     "task5:test": "mocha --watch tests/task-5.test.js",
-
     "proj:compile": "mustache proj/src/courseInfo.json proj/src/template.mustache > proj/public/index.html"
   },
   "repository": {
@@ -36,10 +30,12 @@
   },
   "homepage": "https://github.com/vdenisov-dev/lds-js-async#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^5.2.0"
   },
   "dependencies": {
     "bluebird": "^3.5.3",
+    "lodash": "^4.17.11",
     "mustache": "^3.0.1"
   }
 }
