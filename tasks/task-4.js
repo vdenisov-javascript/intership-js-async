@@ -17,9 +17,7 @@ async function compilingViaMustache(pathToData, pathToTemplate, pathToOutput) {
 
   // Step 3: compile template and save results
   const build = mustache.render(template, view);
-  await fs.writeFileAsync(pathToOutput, build)
-
-  return true;
+  return fs.writeFileAsync(pathToOutput, build)
 }
 
 // ######################### //

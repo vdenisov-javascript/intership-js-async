@@ -21,8 +21,12 @@ describe('Testing "task-4" from "Javacript-Async"', () => {
   });
 
   it('should successfully convert temmplate ".mustache" to output file ".html"', async () => {
-    const checking = await task4.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
-    assert.equal( checking, true );
+    await task4.compilingViaMustache(pathToData, pathToTemplate, pathToOutput);
+
+    await fs.access(pathToOutput, error => {
+      const checking = (!error) ? true : false;
+      assert.equal( checking, true );
+    });
   });
 
 });
