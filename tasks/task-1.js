@@ -1,23 +1,27 @@
 const EventEmitter = require('events');
-const helpers = require('./helpers');
+const _ = require('lodash');
 
 
 class MrRobotEmitter extends EventEmitter {}
 
 // ######################### //
 
-function sayToRobot(phrase, dialogue) {
-  const mrRobot = new MrRobotEmitter();
-  let answer;
+const
+  mrRobot = new MrRobotEmitter(),
+  answers = [],
+  dialoue = {
+    greeting: [ 'hi', 'salute', 'what`s up ?' ],
+    farewell: [ 'bye bye', 'orevuar', 'astalavista' ],
+    status:   [ 'work', 'turnded off', 'broken' ],
+  };
 
-  mrRobot.once(phrase, () => {
-    answer = (dialogue.hasOwnProperty(phrase))
-      ? helpers.getRandomElementFromArray( dialogue[phrase] )
-      : undefined;
-  });
+mrRobot.on('hello',   () => answers.push(   _.sample(dialoue.greeting)  ));
+mrRobot.on('goodbye', () => answers.push(   _.sample(dialoue.farewell)  ));
+mrRobot.on('ping',    () => answers.push(   _.sample(dialoue.status)    ));
 
-  mrRobot.emit(phrase);
-  return answer;
+async function sayToRobot(phrase) {
+  const success = await mrRobot.emit(phrase);
+  return (success) ? answers.shift() : undefined;
 }
 
 // ######################### //
